@@ -1,93 +1,98 @@
-🎙️ Comic-to-Audio Converter
+# 🎙️ Comic-to-Audio Converter
+
 Convert your comic book panels into speech using OCR and Text-to-Speech (TTS) technology!
 
-This project automatically detects panels in a comic image, extracts text from each panel using EasyOCR, and generates corresponding audio files using Google Text-to-Speech (gTTS).
-🎧 Finally, all panel audios are merged into a single audio file to give a seamless voiceover experience of the comic.
+This project automatically detects panels in a comic image, extracts text using [EasyOCR](https://github.com/JaidedAI/EasyOCR), and generates corresponding audio using [gTTS](https://pypi.org/project/gTTS/). Finally, it merges the panel audios into a single voiceover file for a seamless listening experience.
 
-📌 Features
-📖 Comic Panel Detection
-– Automatically splits comic pages into individual panels.
+---
 
-🔍 Text Extraction
-– Uses EasyOCR to extract text from each panel.
+## 📌 Features
 
-🎤 Text-to-Speech
-– Converts panel text to speech using gTTS.
+- 📖 **Comic Panel Detection**  
+  Automatically splits comic pages into individual panels using image processing.
 
-🎧 Audio Compilation
-– Combines all audio files into one with pauses between panels.
+- 🔍 **Text Extraction**  
+  Extracts English text from each panel using EasyOCR.
 
-🛠️ Installation
-Make sure you're running this in a Python environment (e.g., Google Colab or local Jupyter Notebook).
-Then install the dependencies:
+- 🎤 **Text-to-Speech**  
+  Converts extracted text to audio using Google Text-to-Speech (gTTS).
 
-bash
-Copy
-Edit
+- 🎧 **Audio Compilation**  
+  Combines all panel audio files into one, with pauses between them.
+
+---
+
+## 🛠️ Installation
+
+Ensure you're using a Python environment like Google Colab or Jupyter Notebook. Then install the dependencies:
+
+```bash
 pip install easyocr opencv-python numpy matplotlib gTTS pydub
-You also need to install FFmpeg for pydub to work correctly.
+```
+Also, install FFmpeg for audio processing via pydub.
 In Google Colab, run:
-
-bash
-Copy
-Edit
+```bash
 !apt install ffmpeg
-🚀 How to Use
-➕ Add your comic image
-Place your comic image in the working directory and update the path:
+```
+## 🚀 How to Use
 
-python
-Copy
-Edit
+### ➕ Add Your Comic Image
+
+- Place your comic image in the working directory.
+- Update the path in the code:
+
+```python
 image_path = "Comic3.jpg"
-▶️ Run the main process
+```
+### ▶️ Run the Main Process
 This will:
 
-✅ Detect comic panels
+- ✅ Detect comic panels  
+- ✅ Extract text from each panel  
+- ✅ Generate TTS for each panel  
+- ✅ Save panel audios  
+- ✅ Merge them into a single audio file  
 
-✅ Extract text
+---
 
-✅ Generate TTS for each panel
+### 🧠 How It Works
 
-✅ Save all panel audios
+#### 🖼️ Panel Detection
+- Converts comic image to binary using thresholding.
+- Identifies white spaces to segment panels.
 
-✅ Merge them into a single audio file
+#### 👁️ OCR
+- Uses EasyOCR to extract text from each panel image.
 
-🧠 How It Works
-🖼️ Panel Detection
-Converts the comic to binary using thresholding.
+#### 🔊 TTS
+- Uses Google Text-to-Speech (gTTS) to convert text to MP3 files.
 
-Detects horizontal and vertical whitespace to segment panels.
+#### 🎚️ Audio Merging
+- Uses pydub to concatenate all MP3s with short pauses in between.
 
-👁️ OCR
-Uses EasyOCR to read English text from each panel image.
+---
 
-🔊 Text-to-Speech
-Uses Google Text-to-Speech (gTTS) to generate MP3 files.
+### 📦 Dependencies
 
-🎚️ Audio Merging
-Uses pydub to concatenate all panel audio files with short pauses in between.
+- easyocr  
+- opencv-python  
+- numpy  
+- matplotlib  
+- gTTS  
+- pydub  
 
-📌 Dependencies
-EasyOCR
+**System Dependency:**  
+- ffmpeg (external system dependency)
 
-OpenCV
+---
 
-NumPy
+### 📄 License
+This project is licensed under the **MIT License**.  
 
-Matplotlib
+---
 
-gTTS
+### 🙌 Acknowledgments
 
-pydub
-
-📄 License
-This project is open-source under the MIT License.
-
-🙌 Acknowledgments
-Comic image used is for demonstration only.
-
-TTS powered by gTTS
-
-OCR by EasyOCR
-
+- Comic images used are for demonstration purposes only.  
+- OCR by **EasyOCR**  
+- TTS powered by **gTTS**
